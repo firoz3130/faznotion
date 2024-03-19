@@ -13,7 +13,7 @@ export const blogRouter = new Hono<{
 	};
 }>();
 
-bookRouter.use(async (c, next) => {
+blogRouter.use(async (c, next) => {
 	const jwt = c.req.header("Authorization");
 	if (!jwt) {
 		c.status(401);
@@ -29,7 +29,7 @@ bookRouter.use(async (c, next) => {
 	await next();
 });
 
-bookRouter.post("/", async (c) => {
+blogRouter.post("/", async (c) => {
 	console.log("Inside the create blog router root");
 	const userId = c.get("userId");
 	const prisma = new PrismaClient({
@@ -96,39 +96,47 @@ blogRouter.get("/:id", async (c) => {
 });
 
 blogRouter.post("/delete", async (c) => {
+	console.log("Inside the delete blog router");
 	const userId = c.get("userId");
 	const prisma = new PrismaClient({
 		datasourceUrl: c.env?.DATABASE_URL,
 	}).$extends(withAccelerate());
 
 	const body = await c.req.json();
-	await prisma.post.delete({
-		where: {
-			id: body.id,
-		},
-	});
-	return c.text("deleted post");
+	try {
+		await prisma.post.delete({
+			where: {
+				id: body.id,
+			},
+		});
+		return c.text("deleted blog");
+	} catch (e) {
+		return c.text("Blog not found");
+	}
 });
 
-blogRouter.get("/bulk", async (c) => {
+blogRouter.post("/bulk", async (c) => {
+	console.log("Inside the bulk blog router");
 	const prisma = new PrismaClient({
-		datasourceUrl: c.env.DATABASE_URL,
+		datasourceUrl: c.env?.DATABASE_URL,
 	}).$extends(withAccelerate());
-	const blogs = await prisma.post.findMany({
-		select: {
-			content: true,
-			title: true,
-			id: true,
-			author: {
-				select: {
-					name: true,
+	try {
+		const posts = await prisma.post.findMany({
+			select: {
+				id: true,
+				author: {
+					select: {
+						name: true,
+					},
 				},
+				title: true,
+				content: true,
+				published: true,
 			},
-		},
-	});
-	console.log("Blogs are ", blogs);
-
-	return c.json({
-		blogs,
-	});
+		});
+		console.log("Posts are ", posts);
+		return c.json(posts);
+	} catch (e) {
+		return c.json({ message: "No blogs found" });
+	}
 });
