@@ -18,7 +18,7 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
             const response = await axios.post(`${BACKEND_URL}/api/v1/user/${type === 'signin' ? 'signin' : 'signup'}`, postInputs)
             const token = response.data.token
             localStorage.setItem('token', token)
-            navigate('/blog')
+            navigate('/blogs')
         } catch (e) {
             alert("Invalid Credentials")
         }
