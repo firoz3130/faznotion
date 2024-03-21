@@ -18,18 +18,19 @@ export const Blogs = () => {
     return (
         <div >
             <Appbar />
-            <div className="flex justify-center">
-                {blogs.length > 0 ? (
-                    blogs.map((blog: Blog) => (
+            <div className="flex flex-col items-center justify-center">
+                {blogs.map((blog: Blog, index: number) => {
+                    return (
                         <BlogCard
+                            key={index}
                             authorName={blog.authorName}
                             title={blog.title}
                             content={blog.content}
-                            publishedDate={"Published on 10/01/2024"} id={0} />
-                    ))
-                ) : (
-                    <div>No blogs found.</div>
-                )}
+                            publishedDate={blog.publishedDate}
+                            id={0}
+                        />
+                    );
+                })}
             </div>
         </div>
     );

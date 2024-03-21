@@ -15,11 +15,12 @@ export const BlogCard = ({
     publishedDate
 }: BlogCardProps) => {
     return <Link to={`/blog/${id}`}>
-        <div className="p-4 border-b border-slate-200 pb-4 w-screen max-w-screen-md cursor-pointer">
+        <div className="  p-4 border-b border-slate-200 pb-4 w-screen max-w-screen-md cursor-pointer">
             <div className="flex">
+
                 <Avatar name={authorName} />
                 <div className="font-extralight pl-2 text-sm flex justify-center flex-col">{authorName}</div>
-                <div className="flex justify-center flex-col pl-2 flex justify-center flex-col">
+                <div className="flex justify-center flex-col pl-2 flex-col">
                     <Circle />
                 </div>
                 <div className="pl-2 font-thin text-slate-500 text-sm flex justify-center flex-col">
@@ -36,7 +37,7 @@ export const BlogCard = ({
                 {`${Math.ceil(content.length / 100)} minute(s) read`}
             </div>
         </div>
-    </Link>
+    </Link >
 }
 
 export function Circle() {
@@ -45,11 +46,7 @@ export function Circle() {
     </div>
 }
 
-export function Avatar({ name, size = "small" }: { name: string, size?: "small" | "big" }) {
-    if (!name) {
-        return null;
-    }
-
+export function Avatar({ name = 'Shamika', size = "small" }: { name: string, size?: "small" | "big" }) {
     return (
         <div className={`relative inline-flex items-center justify-center overflow-hidden bg-gray-600 rounded-full
                                  ${size === "small" ? "w-6 h-6" : "w-10 h-10"}`}>
