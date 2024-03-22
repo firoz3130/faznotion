@@ -23,6 +23,7 @@ export const useBlog = ({ id }: { id: string }) => {
 				},
 			})
 			.then((response) => {
+				console.log("Blog fetched successfully:", response.data);
 				setBlog(response.data);
 				setLoading(false);
 			});
