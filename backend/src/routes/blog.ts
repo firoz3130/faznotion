@@ -23,6 +23,7 @@ blogRouter.use(async (c, next) => {
 	const token = jwt.split(" ")[1];
 	console.log("Token is ", token);
 	const payload = await verify(token, c.env.JWT_SECRET);
+	console.log("Payload is ", payload);
 	if (!payload) {
 		c.status(401);
 		return c.json({ error: "unauthorized after payload" });
@@ -43,7 +44,7 @@ blogRouter.post("/", async (c) => {
 		data: {
 			title: body.title,
 			content: body.content,
-			authorId: userId,
+			authorId: String(userId),
 		},
 	});
 	return c.json({
