@@ -8,7 +8,7 @@ export const Blog = () => {
     const { id } = useParams();
     const { loading, blog } = useBlog({
         id: id || ""
-    }) as { loading: boolean; blog: Blog | undefined };
+    });
 
     if (loading || !blog) {
         return <div>
