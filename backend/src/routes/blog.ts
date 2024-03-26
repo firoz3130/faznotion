@@ -138,6 +138,7 @@ blogRouter.post("/bulk", async (c) => {
 		console.log("Posts are ", blogs);
 		return c.json(blogs);
 	} catch (e) {
+		console.log("Error Fetching the blogs Really sorry", e);
 		return c.json({ message: "Error Fetching Blogs" });
 	}
 });

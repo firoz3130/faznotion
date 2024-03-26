@@ -41,7 +41,7 @@ export const useBlog = ({ id }: { id: string }) => {
 export const useBlogs = () => {
 	const [loading, setLoading] = useState(true);
 	const [blogs, setBlogs] = useState<Blog[]>([]);
-
+	console.log("Sending request to the backend for Bulk api");
 	useEffect(() => {
 		axios
 			.get(`${BACKEND_URL}/api/v1/blog/bulk`, {
