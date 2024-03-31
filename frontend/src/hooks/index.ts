@@ -14,6 +14,7 @@ export interface Blog {
 export const useBlog = ({ id }: { id: string }) => {
 	const [loading, setLoading] = useState(true);
 	const [blog, setBlog] = useState<Blog>();
+	console.log("The token is ", localStorage.getItem("token"));
 	try {
 		useEffect(() => {
 			axios
@@ -38,23 +39,35 @@ export const useBlog = ({ id }: { id: string }) => {
 		console.log("The error is ", e);
 	}
 };
+
 export const useBlogs = () => {
 	const [loading, setLoading] = useState(true);
 	const [blogs, setBlogs] = useState<Blog[]>([]);
 	console.log("Sending request to the backend for Bulk api");
+	console.log("The token is ", localStorage.getItem("token"));
 	useEffect(() => {
 		axios
-			.get(`${BACKEND_URL}/api/v1/blog/bulk`, {
-				headers: {
-					Authorization: `Bearer ${localStorage.getItem("token")}`,
-				},
-			})
+			.post(
+				`${BACKEND_URL}/api/v1/blog/bulk`,
+				{},
+				{
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem(
+							"token"
+						)}`,
+					},
+				}
+			)
 			.then((response) => {
+				console.log("The response is ", response.data);
 				setBlogs(response.data.blogs);
 				setLoading(false);
 			});
 	}, []);
-
+	console.log(
+		"Returning blogs called from the useBlogs hook which contains",
+		blogs
+	);
 	return {
 		loading,
 		blogs,
