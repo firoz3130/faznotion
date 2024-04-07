@@ -14,7 +14,10 @@ export interface Blog {
 export const useBlog = ({ id }: { id: string }) => {
 	const [loading, setLoading] = useState(true);
 	const [blog, setBlog] = useState<Blog>();
-	console.log("The token is ", localStorage.getItem("token"));
+	console.log(
+		"The token inside the /id useBlog Hook is ",
+		localStorage.getItem("token")
+	);
 	try {
 		useEffect(() => {
 			axios
@@ -27,7 +30,7 @@ export const useBlog = ({ id }: { id: string }) => {
 				})
 				.then((response) => {
 					console.log("The response is ", response.data);
-					setBlog(response.data.blog);
+					setBlog(response.data);
 					setLoading(false);
 				});
 		}, [id]);
@@ -60,7 +63,7 @@ export const useBlogs = () => {
 			)
 			.then((response) => {
 				console.log("The response is ", response.data);
-				setBlogs(response.data.blogs);
+				setBlogs(response.data);
 				setLoading(false);
 			});
 	}, []);

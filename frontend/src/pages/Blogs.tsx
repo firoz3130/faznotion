@@ -5,7 +5,7 @@ import { useBlogs } from "../hooks";
 
 export const Blogs = () => {
     const { loading, blogs } = useBlogs();
-    console.log("The blogs are ", blogs)
+    console.log("Inside the Blogs.tsx file \nThe blogs are ", blogs)
     if (loading) {
         return <div>
             <Appbar />
@@ -21,18 +21,21 @@ export const Blogs = () => {
         </div>
     }
 
-    return <div>
-        <Appbar />
-        <div className="flex justify-center">
-            <div>
-                {blogs.map(blog => <BlogCard
-                    id={blog.id}
-                    authorName={blog.author.name}
-                    title={blog.title}
-                    content={blog.content}
-                    publishedDate={'22-11-2004'}
-                />)}
+    return (
+        <div>
+            <Appbar />
+            <div className="flex justify-center">
+                <div>
+                    {blogs && blogs.map(blog => <BlogCard
+                        id={blog.id}
+                        authorName={blog.author.name}
+                        title={blog.title}
+                        content={blog.content}
+                        publishedDate={'22-11-2004'}
+                    />)}
+                </div>
             </div>
         </div>
-    </div>
+    );
+
 }

@@ -5,7 +5,7 @@ export const Quote = () => {
                 <div className=" text-3xl font-bold">
                     "The customer service is amazing! I love it 💖! Will definitely buy this out"
                 </div>
-                <div className="max-w-md text-xl font-semibold">Shamika</div>
+                <div className="max-w-md text-xl font-semibold">yttehS akimahS</div>
                 <div className="max-w-md text-s font-light text-slate-500">C.E.O | ACME Corp</div>
             </div>
 

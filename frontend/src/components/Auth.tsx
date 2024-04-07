@@ -37,7 +37,7 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
                     </div>
                 </div>
                 <div className="pt-4">
-                    {type === 'signup' ? <LabelledInput label="Name" placeholder="Shamika" onChange={(e) => {
+                    {type === 'signup' ? <LabelledInput label="Name" placeholder="akimahS" onChange={(e) => {
                         setPostInputs(
                             {
                                 ...postInputs,
@@ -45,7 +45,7 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
                             }
                         )
                     }} /> : null}
-                    {type === 'signup' ? <LabelledInput label="email" placeholder="shamshetty18@gmail.com" onChange={(e) => {
+                    {type === 'signup' ? <LabelledInput label="email" placeholder="yttehsakimahs@gmail.com" onChange={(e) => {
                         setPostInputs(
                             {
                                 ...postInputs,
@@ -53,7 +53,7 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
                             }
                         )
                     }} /> : null}
-                    <LabelledInput label="Username" placeholder="Shamika_shetty24" onChange={(e) => {
+                    <LabelledInput label="Username" placeholder="firos_18" onChange={(e) => {
                         setPostInputs(
                             {
                                 ...postInputs,

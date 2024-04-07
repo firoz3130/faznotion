@@ -16,7 +16,7 @@ export const FullBlog = ({ blog }: { blog: Blog }) => {
                         {blog.title}
                     </div>
                     <div className="text-slate-500 pt-2">
-                        Post on 2nd December 2023
+                        Post on 18th September 2023
                     </div>
                     <div className="pt-4">
                         {blog.content}
@@ -35,7 +35,8 @@ export const FullBlog = ({ blog }: { blog: Blog }) => {
                                 {"Anonymous"}
                             </div>
                             <div className="pt-2 text-slate-500">
-                                Random catch phrase about the author's ability to grab the user's attention
+                                The author, a visionary developer, transforms dreams,wishes into tangible realities by day,
+                                while moonstruck by night, enchanted by a girl who radiates the allure of the moon.
                             </div>
                         </div>
                     </div>
