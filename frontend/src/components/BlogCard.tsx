@@ -46,7 +46,7 @@ export function Circle() {
     </div>
 }
 
-export function Avatar({ name = 'Shamika', size = "small" }: { name: string, size?: "small" | "big" }) {
+export function Avatar({ name = 'Fazza', size = "small" }: { name: string, size?: "small" | "big" }) {
     return (
         <div className={`relative inline-flex items-center justify-center overflow-hidden bg-gray-600 rounded-full
                                  ${size === "small" ? "w-6 h-6" : "w-10 h-10"}`}>
