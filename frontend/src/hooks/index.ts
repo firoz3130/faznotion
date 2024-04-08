@@ -18,29 +18,23 @@ export const useBlog = ({ id }: { id: string }) => {
 		"The token inside the /id useBlog Hook is ",
 		localStorage.getItem("token")
 	);
-	try {
-		useEffect(() => {
-			axios
-				.get(`${BACKEND_URL}/api/v1/blog/${id}`, {
-					headers: {
-						Authorization: `Bearer ${localStorage.getItem(
-							"token"
-						)}`,
-					},
-				})
-				.then((response) => {
-					console.log("The response is ", response.data);
-					setBlog(response.data);
-					setLoading(false);
-				});
-		}, [id]);
-		return {
-			loading,
-			blog,
-		};
-	} catch (e) {
-		console.log("The error is ", e);
-	}
+	useEffect(() => {
+		axios
+			.get(`${BACKEND_URL}/api/v1/blog/${id}`, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+				},
+			})
+			.then((response) => {
+				console.log("The response is ", response.data);
+				setBlog(response.data);
+				setLoading(false);
+			});
+	}, [id]);
+	return {
+		loading,
+		blog,
+	};
 };
 
 export const useBlogs = () => {

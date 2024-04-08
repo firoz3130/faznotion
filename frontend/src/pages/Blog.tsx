@@ -10,6 +10,9 @@ export const Blog = () => {
         id: id || ""
     });
 
+    if (!loading) {
+        console.log("The blog is ", blog);
+    }
     if (loading || !blog) {
         return <div>
             <Appbar />
