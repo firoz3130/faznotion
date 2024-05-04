@@ -10,7 +10,7 @@ export const Appbar = () => {
         <div className="border-b flex justify-between px-9">
             <div className="flex flex-col justify-center">
                 <Link to="/blogs">
-                    <button>FazBlogs</button>
+                    <button >FazBlogs</button>
                 </Link>
             </div>
             <div className="flex justify-end space-x-4 items-center">
@@ -21,7 +21,7 @@ export const Appbar = () => {
                 )}
                 {isProfilePage && (
                     <Link to='/edit-profile'>
-                        <button>Edit Profile</button>
+                        <button type="button" className="focus:outline-none text-white bg-yellow-700 hover:bg-green-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-red-700 dark:focus:ring-violet-800">Edit Profile</button>
                     </Link>
                 )}
                 <Link to='/profile'>
