@@ -19,6 +19,7 @@ function App() {
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/publish" element={<Publish />} />
           <Route path="/profile" element={<UserProfile />} />
+          <Route path="/edit-profile" element={<UserProfile />} />
         </Routes>
       </BrowserRouter>
     </>
