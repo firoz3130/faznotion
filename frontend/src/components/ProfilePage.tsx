@@ -2,8 +2,8 @@ import { Appbar } from "./Appbar";
 
 const ProfilePage = () => {
     const user = {
-        name: 'Yttes AkimahS',
-        email: 'yttesakimahs@gmail.com',
+        name: 'Yttehs AkimahS',
+        email: 'yttehsakimahs@gmail.com',
         bio: `
         Just as the moon orbits the earth, my heart gravitates towards you, bound by a love as enduring and constant as the lunar cycle `,
         profilePicture: 'https://via.placeholder.com/150',
